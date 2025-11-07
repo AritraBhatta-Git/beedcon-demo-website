@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact — BBEED EECON</title>
+  <style>
+    :root{--bg:#0B0B0D;--gold:#C9A34B;--muted:#BFC1C4}
+    body{margin:0;background:var(--bg);color:#fff;font-family:Inter,Arial,sans-serif}
+    .container{max-width:900px;margin:0 auto;padding:28px}
+    header{display:flex;align-items:center;justify-content:space-between}
+    .logo{display:flex;gap:12px;align-items:center}
+    .logo .dot{width:46px;height:46px;border-radius:50%;background:linear-gradient(#C9A34B,#B79A54);display:grid;place-items:center;color:#071015;font-weight:700}
+    main{margin-top:18px}
+    .grid{display:grid;grid-template-columns:1fr 360px;gap:20px}
+    .card{background:rgba(255,255,255,0.02);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+    label{display:block;margin-top:8px;font-size:13px;color:var(--muted)}
+    input,textarea{width:100%;padding:10px;margin-top:6px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:#fff}
+    button{margin-top:12px;padding:12px 16px;border-radius:10px;background:var(--gold);color:#071015;border:none;font-weight:700;cursor:pointer}
+    .contact-quick{display:flex;flex-direction:column;gap:10px}
+    .chip{background:rgba(255,255,255,0.02);padding:10px;border-radius:10px}
+    .muted{color:var(--muted)}
+    @media (max-width:880px){.grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <div class="dot">B</div>
+        <div>
+          <div style="font-weight:700">BBEED EECON</div>
+          <div class="muted" style="font-size:13px">Get in touch for staffing & security plans</div>
+        </div>
+      </div>
+      <div><a href="index.html" class="muted">← Home</a></div>
+    </header>
+
+    <main>
+      <h1>Contact Us</h1>
+      <div class="grid">
+        <div class="card">
+          <form id="contactForm">
+            <label for="name">Your name</label>
+            <input id="name" name="name" required />
+
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required />
+
+            <label for="phone">Phone (with country code)</label>
+            <input id="phone" name="phone" placeholder="+91**********" />
+
+            <label for="message">Message / Requirements</label>
+            <textarea id="message" name="message" rows="6" required></textarea>
+
+            <button type="submit">Send Message</button>
+            <div id="formMsg" style="margin-top:10px;color:var(--muted)"></div>
+          </form>
+        </div>
+
+        <aside class="card contact-quick">
+          <div style="font-weight:700">Quick Contact</div>
+          <div class="chip"><strong>Phone:</strong> <a href="tel:+911234567890" style="color:var(--gold)">+91 12345 67890</a></div>
+          <div class="chip"><strong>WhatsApp:</strong> <a href="https://wa.me/911234567890" target="_blank" style="color:var(--gold)">Chat on WhatsApp</a></div>
+          <div class="chip"><strong>Email:</strong> <a href="mailto:info@bbeedeecon.com" style="color:var(--gold)">info@bbeedeecon.com</a></div>
+          <div style="margin-top:8px" class="muted">Or call us any time — we respond quickly for quotes and audits.</div>
+        </aside>
+      </div>
+    </main>
+
+    <footer style="margin-top:24px;border-top:1px solid rgba(255,255,255,0.04);padding-top:14px;color:var(--muted);display:flex;justify-content:space-between">
+      <div>© <span id="yr"></span> BBEED EECON</div>
+      <div>Govt Registered • Services across India</div>
+    </footer>
+  </div>
+
+  <!-- EmailJS SDK (via CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
+
+    // Initialize EmailJS (replace with your user ID)
+    // Visit https://www.emailjs.com and create an account. Create a service, template and get your user ID.
+    (function(){
+      // Replace 'YOUR_USER_ID' with your EmailJS user ID (public key)
+      emailjs.init('YOUR_USER_ID');
+    })();
+
+    // Form submit handler
+    const form = document.getElementById('contactForm');
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      const btn = form.querySelector('button');
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+      const templateParams = {
+        from_name: form.name.value,
+        from_email: form.email.value,
+        phone: form.phone.value || 'Not provided',
+        message: form.message.value
+      };
+      // Replace 'YOUR_SERVICE_ID' and 'YOUR_TEMPLATE_ID' with values from EmailJS
+      emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+        .then(function(response) {
+          document.getElementById('formMsg').textContent = 'Message sent — we will contact you soon.';
+          form.reset();
+        }, function(error) {
+          console.error('FAILED...', error);
+          document.getElementById('formMsg').textContent = 'Failed to send. Please call or email us instead.';
+        })
+        .finally(() => {
+          btn.disabled = false;
+          btn.textContent = 'Send Message';
+        });
+    });
+  </script>
+</body>
+</html>

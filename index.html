@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>BBEED EECON — Security Services Across India</title>
+  <meta name="description" content="BBEED EECON — Government registered security agency providing guards, event security, VIP protection, hospital and mall security across India." />
+  <style>
+    /* -------------------------
+       GLOBAL
+       ------------------------- */
+    :root{
+      --bg:#0B0B0D;
+      --gold:#C9A34B;
+      --muted:#B79A54;
+      --muted-text:#BFC1C4;
+      --surface:#0F0F10;
+      --radius:12px;
+    }
+    html,body{height:100%;margin:0;background:var(--bg);color:#fff;font-family:Inter,system-ui,Arial,sans-serif}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1100px;margin:0 auto;padding:28px}
+    header{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+    .brand{display:flex;gap:14px;align-items:center}
+    .logo{
+      width:56px;height:56px;border-radius:50%;
+      background:linear-gradient(180deg,#C9A34B,#B79A54);
+      color:#071015;display:grid;place-items:center;font-weight:700;font-size:20px;
+      box-shadow:0 6px 18px rgba(0,0,0,0.6)
+    }
+    nav{display:flex;gap:18px;align-items:center}
+    nav a{padding:8px 12px;border-radius:8px;color:var(--muted-text)}
+    nav a.cta{background:var(--gold);color:#071015;font-weight:600}
+    /* -------------------------
+       HERO (video background)
+       ------------------------- */
+    .hero-wrap{
+      position:relative;min-height:72vh;display:flex;align-items:center;
+      border-radius:18px;overflow:hidden;margin-bottom:36px;
+      box-shadow:0 20px 50px rgba(0,0,0,0.6);
+    }
+    .hero-video{
+      position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;
+      filter:brightness(.45) contrast(1.05);
+    }
+    .hero-fallback{
+      display:none;background-position:center;background-size:cover;
+      position:absolute;inset:0;z-index:0;
+    }
+    .hero-content{position:relative;z-index:2;padding:40px;color:#fff;width:100%}
+    .kicker{display:inline-block;padding:6px 10px;background:rgba(0,0,0,0.4);border-radius:999px;margin-bottom:12px;color:var(--gold);font-weight:600}
+    h1{margin:0;font-size:38px;line-height:1.05;letter-spacing:-0.5px}
+    p.lead{color:var(--muted-text);max-width:860px;margin-top:14px}
+    .hero-actions{margin-top:18px;display:flex;gap:12px;flex-wrap:wrap}
+    .btn{padding:12px 18px;border-radius:10px;font-weight:600;border:none;cursor:pointer}
+    .btn-gold{background:var(--gold);color:#071015}
+    .btn-outline{background:transparent;border:1px solid rgba(255,255,255,0.08);color:var(--muted-text)}
+    /* -------------------------
+       FEATURES & TRUST
+       ------------------------- */
+    .grid{display:grid;gap:18px}
+    .cols-4{grid-template-columns:repeat(4,1fr)}
+    .card{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.04)}
+    .muted{color:var(--muted-text)}
+    /* -------------------------
+       FOOTER
+       ------------------------- */
+    footer{border-top:1px solid rgba(255,255,255,0.04);padding:20px 0;margin-top:36px;color:var(--muted-text);display:flex;justify-content:space-between;align-items:center}
+    /* -------------------------
+       RESPONSIVE
+       ------------------------- */
+    @media (max-width:900px){
+      .cols-4{grid-template-columns:repeat(2,1fr)}
+      h1{font-size:28px}
+      nav{display:none}
+    }
+    @media (max-width:520px){
+      .cols-4{grid-template-columns:1fr}
+      h1{font-size:24px}
+      .logo{width:44px;height:44px;font-size:18px}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">B</div>
+        <div>
+          <div style="font-weight:700">BBEED EECON</div>
+          <div style="font-size:12px;color:var(--muted-text)">Government Registered Security Agency</div>
+        </div>
+      </div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html" class="cta">Contact</a>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero-wrap" aria-label="Hero — Bbeedeecon Security">
+      <!-- Replace hero.mp4 with your file; fallback hero.jpg used on small screens -->
+      <video class="hero-video" autoplay muted loop playsinline id="heroVideo">
+        <source src="hero.mp4" type="video/mp4" />
+        <!-- no source fallback, browser will show fallback block below -->
+      </video>
+      <div class="hero-fallback" id="heroFallback" style="background-image:url('hero.jpg')"></div>
+
+      <div class="hero-content">
+        <span class="kicker">24/7 SECURITY • PAN-INDIA</span>
+        <h1>BBEED EECON — Protecting People & Places with Professional Security</h1>
+        <p class="lead">Government-registered security services: mall security, hospital security, event & VIP protection, trained bouncers, and corporate guard services across India. Trusted teams, rigorous training, and rapid response.</p>
+
+        <div class="hero-actions">
+          <a class="btn btn-gold" href="tel:+911234567890">Call Now</a>
+          <a class="btn btn-outline" href="https://wa.me/911234567890?text=Hello%20BBEED%20EECON%20—%20I%20want%20a%20quote" target="_blank" rel="noopener">WhatsApp</a>
+          <a class="btn btn-outline" href="contact.html">Request Quote</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES PREVIEW -->
+    <section>
+      <h2 style="margin:0 0 12px 0">Services We Offer</h2>
+      <div class="grid cols-4">
+        <div class="card">
+          <strong>Corporate & Mall Security</strong>
+          <div class="muted" style="margin-top:8px">Uniformed guards, CCTV monitoring liaison, access control.</div>
+        </div>
+        <div class="card">
+          <strong>Event Security & Crowd Management</strong>
+          <div class="muted" style="margin-top:8px">Skilled bouncers, access screening, VIP handling.</div>
+        </div>
+        <div class="card">
+          <strong>Hospital & Healthcare Security</strong>
+          <div class="muted" style="margin-top:8px">Discreet professional staff trained in sensitive environments.</div>
+        </div>
+        <div class="card">
+          <strong>VIP/Close Protection</strong>
+          <div class="muted" style="margin-top:8px">Experienced protection teams for executives and dignitaries.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUST / CTA -->
+    <section style="margin-top:28px;display:flex;gap:18px;align-items:center;flex-wrap:wrap">
+      <div style="flex:1" class="card">
+        <div style="font-weight:700">Government Registered</div>
+        <div class="muted" style="margin-top:8px">Certificate of registration available on request. All staff undergo background verification and training.</div>
+      </div>
+      <div style="min-width:260px" class="card">
+        <div style="font-weight:700">Get a Free Quote</div>
+        <div class="muted" style="margin-top:8px">Call or message us and we will prepare a tailored security plan for your premises or event.</div>
+        <div style="margin-top:12px;display:flex;gap:8px">
+          <a class="btn btn-gold" href="tel:+911234567890">Call</a>
+          <a class="btn btn-outline" href="contact.html">Contact Form</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div>© <span id="year"></span> BBEED EECON</div>
+      <div>Contact: <a href="mailto:info@bbeedeecon.com" style="color:var(--gold)">info@bbeedeecon.com</a></div>
+    </footer>
+  </div>
+
+  <script>
+    // Set year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile / slow-connection fallback: if video fails, show fallback image or hide video
+    const video = document.getElementById('heroVideo');
+    const fallback = document.getElementById('heroFallback');
+    function handleFallback() {
+      video.style.display = 'none';
+      fallback.style.display = 'block';
+    }
+    // If video can't play within 2 seconds, fallback (helps mobile data)
+    let played = false;
+    video.addEventListener('playing', () => { played = true; });
+    setTimeout(() => { if(!played) handleFallback(); }, 2000);
+    // Also hide video on small devices to save data
+    if(window.innerWidth < 640) handleFallback();
+  </script>
+</body>
+</html>
